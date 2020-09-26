@@ -1,7 +1,7 @@
 <template>
   <footer class="footer-container">
     <div class="footer-wrapper">
-      <a class="between">
+      <a class="between-1">
         <switch-theme :size="'18px'"></switch-theme>
         <span class="logo">{{siteInfo.name}}</span>
       </a>
@@ -10,8 +10,9 @@
         <desktop-nav :navList="navList"></desktop-nav>
       </div>
 
-      <div class="social-links between" v-for="item of personalLinkList" :key="item.id">
-        <a :href="item.url" target="_blank">
+
+      <div class="social-links between-2">
+        <a :href="item.url" target="_blank" v-show="item.display_state" v-for="item of personalLinkList" :key="item.id">
           <img v-if="item.icon" :src="item.icon" alt="">
           <i v-else class="text">{{item.name}}</i>
         </a>
@@ -73,7 +74,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: calc(100% - 85px - 85px);
-    max-width: 1024px;
+    max-width: 1224px;
     margin-top: 8vh;
     padding: 0 15px 15px;
 
@@ -95,8 +96,17 @@ export default {
       }
     }
 
-    .between {
-      width: 100px;
+    .between-1 {
+      width: 200px;
+
+      @media (max-width: 1023px) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .between-2 {
+      width: 500px;
 
       @media (max-width: 1023px) {
         display: flex;

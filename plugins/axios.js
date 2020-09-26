@@ -22,7 +22,7 @@ export default function ({ $axios, redirect }) {
         const res = error.response
         const data = error.response.data
 
-        if (!(data.code === 10003 && res.config.url === 'http://localhost:8081/v1/customer/information')) {
+        if (!(data.code === 10003 && res.config.url.indexOf('customer/information') !== -1)) {
             Message.error(data.message)
         }
     })

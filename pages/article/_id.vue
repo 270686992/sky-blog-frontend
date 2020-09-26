@@ -36,11 +36,12 @@
         </div>
 
         <split-line class="split-line" :icon="'recommend'" :desc="'感谢阅读'"></split-line>
+        <split-line v-show="!article.enable_comment" class="split-line" :icon="'message'" :desc="'该文章评论区已关闭'"></split-line>
       </div>
     </div>
 
     <!-- 评论区域 -->
-    <div ref="commentArea" class="article-container comment-container">
+    <div ref="commentArea" v-show="article.enable_comment" class="article-container comment-container">
       <div class="content">
         <split-line class="split-line" :icon="'message'" :desc="'评论'"></split-line>
 
